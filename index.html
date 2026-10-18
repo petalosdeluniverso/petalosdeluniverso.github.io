@@ -706,6 +706,68 @@
       white-space: normal;
       line-height: 1.25;
     }
+
+    /* Altar familiar: compra por partes */
+    .altar-parts {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(212,175,55,.10);
+    }
+    .altar-parts-title {
+      margin: 0 0 12px;
+      color: #f0d77e;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+    .altar-parts-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .altar-part-option {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 13px;
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,.22);
+      background: linear-gradient(145deg, rgba(212,175,55,.065), rgba(123,79,166,.10));
+    }
+    .altar-part-info {
+      min-width: 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .altar-part-name {
+      min-width: 0;
+      color: #d8d4dc;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+    .altar-part-price {
+      flex: 0 0 auto;
+      color: #fff4c6;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .altar-part-option .add-btn {
+      width: auto;
+      min-width: 96px;
+      padding-inline: 14px;
+      white-space: nowrap;
+    }
     .distance-value-note {
       margin: 28px auto 0;
       max-width: 900px;
@@ -1146,6 +1208,13 @@
       .item-highlights { grid-template-columns: 1fr; }
       .session-pricing { grid-template-columns: 1fr; }
       .session-option { padding: 13px; }
+      .altar-parts { margin-top: 18px; padding-top: 16px; }
+      .altar-parts-title { font-size: 1.08rem; margin-bottom: 10px; }
+      .altar-part-option { gap: 10px; padding: 11px 10px; }
+      .altar-part-info { gap: 8px; }
+      .altar-part-name { font-size: .68rem; letter-spacing: .06em; }
+      .altar-part-price { font-size: 1.2rem; }
+      .altar-part-option .add-btn { min-width: 84px; padding: 10px 12px; font-size: .72rem; }
       .distance-value-note { margin-top: 22px; padding: 14px; font-size: .86rem; }
       .faq-item summary { padding: 17px 16px; gap: 12px; }
       .faq-answer { padding: 0 16px 18px; font-size: .9rem; }
@@ -1264,10 +1333,10 @@
         <div class="essence-copy reveal" style="--delay:100ms">
           <p class="eyebrow">Nuestra esencia</p>
           <h2>Vibrar en alta frecuencia es un camino</h2>
-          <p>Somos un espacio dedicado a acompañarte en tu despertar. Cada producto que creamos lleva intención, amor y energía consciente. Desde nuestras velas con mensajes del universo hasta nuestras terapias holísticas, todo está diseñado para elevar tu vibración.</p>
+          <p>Somos un espacio dedicado a acompañarte en tu despertar. Cada producto que tenemos lleva intención, amor y energía consciente. Desde nuestras velas con mensajes del universo hasta nuestras terapias holísticas, todo está diseñado para elevar tu vibración.</p>
           <p>Creemos que el bienestar verdadero nace de adentro hacia afuera, y que cada cristal, cada aroma, cada sesión es una invitación a recordar quién sos en esencia.</p>
           <ul class="essence-points">
-            <li>Productos elaborados con intención y amor</li>
+            <li>Productos con intención y amor</li>
             <li>Cristales seleccionados energéticamente</li>
             <li>Terapeutas certificadas en técnicas holísticas</li>
             <li>Formaciones transformadoras y vivenciales</li>
@@ -1472,20 +1541,86 @@
         highlights: ["Inciensos naturales", "Linea emociones"]
       },
       {
-        id: "p4", type: "Producto", name: "Spray Aúrico con Cristales", price: 30000, image: "imagenes/sprayaurico.jpg",
+        id: "p4", type: "Producto", name: "Spray Aúrico Energia", price: 30000, image: "imagenes/energia.jpg",
         promo: { qty: 2, price: 50000, label: "2 por $50.000" },
-        description: "Brumas energéticas con agua estructurada, esencias florales y cristales para proteger tu campo áurico.",
+        description: "El cuarzo verde actúa disolviendo tensiones y estrés acumulado, restaurando el entusiasmo, la motivación y atrayendo positivismo.",
         tag: "Protección áurica",
         highlights: ["Agua estructurada", "Esencias florales y cristales"]
+  },
+      {
+        id: "p4", type: "Producto", name: "Spray Aúrico Calma", price: 30000, image: "imagenes/calma.jpg",
+        promo: { qty: 2, price: 50000, label: "2 por $50.000" },
+        description: "Ayuda a liberar tensiones, calmar la mente y mejorar el descanso combinando aromaterapia y el poder energético de la amatista.",
+        tag: "Protección áurica",
+        highlights: ["Agua estructurada", "Esencias florales y cristales"]
+ },
+      {
+        id: "p4", type: "Producto", name: "Spray Aúrico Abundancia", price: 30000, image: "imagenes/abundancia.jpg",
+        promo: { qty: 2, price: 50000, label: "2 por $50.000" },
+        description: "Ayuda a despertar la riqueza natural, enfocar la mente en metas y atraer la prosperidad potenciado con cuarzo citrino.",
+        tag: "Protección áurica",
+        highlights: ["Agua estructurada", "Esencias florales y cristales"]
+ },
+      {
+        id: "p4", type: "Producto", name: "Spray Aúrico Amor", price: 30000, image: "imagenes/amor.jpg",
+        promo: { qty: 2, price: 50000, label: "2 por $50.000" },
+        description: "Para conectar con tu fuerza interior, promover la autocompasión y rodearte de una vibración de amor y empoderamiento potenciado con cuarzo rosa.",
+        tag: "Protección áurica",
+        highlights: ["Agua estructurada", "Esencias florales y cristales"]
+ },
+      {
+        id: "p4", type: "Producto", name: "Spray Aúrico Protección", price: 30000, image: "imagenes/proteccion.jpg",
+        promo: { qty: 2, price: 50000, label: "2 por $50.000" },
+        description: "Para crear un escudo protector natural, repeler las malas vibras y reestablecer tu campo energético con cristales y flores de Bach.",
+        tag: "Protección áurica",
+        highlights: ["Agua estructurada", "Esencias florales y cristales"]
+
       },
       {
-        id: "p5", type: "Producto", name: "Roll On Línea Gold", price: 21000, image: "imagenes/rollon.jpg",
-        description: "Roll ons exclusivos elaborados con cristales seleccionados para equilibrar chakras al instante.",
+        id: "p5", type: "Producto", name: "Roll On Abundancia", price: 21000, image: "imagenes/rollabundancia.jpg",
+        description: "Roll ons; ayuda a despertar la riqueza natural, enfocar la mente en metas y atraer la prosperidad potenciado con cuarzo citrino.",
         tag: "Línea premium",
         highlights: ["Cristales seleccionados", "Equilibrio de chakras"]
+  },
+      {
+        id: "p5", type: "Producto", name: "Roll On Amor", price: 21000, image: "imagenes/rollamor.jpg",
+        description: "Roll ons; para conectar con tu fuerza interior, promover la autocompasión y rodearte de una vibración de amor y empoderamiento potenciado con cuarzo rosa.",
+        tag: "Línea premium",
+        highlights: ["Cristales seleccionados", "Equilibrio de chakras"]
+  },
+      {
+        id: "p5", type: "Producto", name: "Roll On Calma", price: 21000, image: "imagenes/rollcalma.jpg",
+        description: "Roll ons; ayuda a liberar tensiones, calmar la mente y mejorar el descanso combinando aromaterapia y el poder energético de la amatista.",
+        tag: "Línea premium",
+        highlights: ["Cristales seleccionados", "Equilibrio de chakras"]
+  },
+      {
+        id: "p5", type: "Producto", name: "Roll On Protección", price: 21000, image: "imagenes/rollproteccion.jpg",
+        description: "Roll ons; el cuarzo verde actúa disolviendo tensiones y estrés acumulado, restaurando el entusiasmo, la motivación y atrayendo positivismo.",
+        tag: "Línea premium",
+        highlights: ["Cristales seleccionados", "Equilibrio de chakras"]
+  },
+      {
+        id: "p5", type: "Producto", name: "Roll On Energia", price: 21000, image: "imagenes/rollenergia.jpg",
+        description: "Roll ons; para crear un escudo protector natural, repeler las malas vibras y reestablecer tu campo energético con cristales y flores de Bach.",
+        tag: "Línea premium",
+        highlights: ["Cristales seleccionados", "Equilibrio de chakras"]
+
       },
       {
         id: "p6", type: "Producto", name: "Cascadas de Humo", price: 4660, image: "imagenes/cascadadehumo.jpg",
+        description: "Incensarios tipo cascada con efecto visual hipnótico que purifican y llenan de magia tu hogar.",
+        tag: "Decoración sagrada",
+        highlights: ["Efecto visual cascada", "Purificación y ambientación"]
+ },
+      {
+        id: "p6", type: "Producto", name: "Cascadas de Humo Buda", price: 5200, image: "imagenes/cascadabuda.jpg",
+        description: "Incensarios tipo cascada con efecto visual hipnótico que purifican y llenan de magia tu hogar.",
+        tag: "Decoración sagrada",
+        highlights: ["Efecto visual cascada", "Purificación y ambientación"]
+},
+      {
+        id: "p6", type: "Producto", name: "Cascadas de Humo Sakiamuni", price: 6000, image: "imagenes/cascadasaki.jpg",
         description: "Incensarios tipo cascada con efecto visual hipnótico que purifican y llenan de magia tu hogar.",
         tag: "Decoración sagrada",
         highlights: ["Efecto visual cascada", "Purificación y ambientación"]
@@ -1518,7 +1653,14 @@
         id: "p11", type: "Producto", name: "Altar Familiar de Madera", price: 7200, image: "imagenes/familia.jpg",
         description: "Altares artesanales en madera para crear un espacio sagrado donde la familia conecta con lo divino.",
         tag: "Hogar sagrado",
-        highlights: ["Madera artesanal", "Espacio sagrado familiar"]
+        highlights: ["Madera artesanal", "Espacio sagrado familiar"],
+        parts: {
+          base: { label: "Base", value: 7200 },
+          figurasGrandes: { label: "Figuras grandes", value: 1200 },
+          figurasChicas: { label: "Figuras chicas", value: 800 },
+          perro: { label: "Perro", value: 800 },
+          gato: { label: "Gato", value: 800 }
+        }
       },
       {
         id: "p12", type: "Producto", name: "Colgantes de Tela & Atrapasoles", price: 5300, image: "imagenes/colgantesdetela.jpg",
@@ -1752,6 +1894,24 @@ id: "p17", type: "Producto", name: "Set para alinear chacras", price: 42185, ima
         </div>`;
     }
 
+    function altarPartsHTML(item) {
+      if (!item.parts) return "";
+      return `
+        <div class="altar-parts" aria-label="Partes y precios de ${escapeHTML(item.name)}">
+          <h4 class="altar-parts-title">Elegí las partes que querés llevar</h4>
+          <div class="altar-parts-list">
+            ${Object.entries(item.parts).map(([part, option]) => `
+              <div class="altar-part-option">
+                <div class="altar-part-info">
+                  <span class="altar-part-name">${escapeHTML(option.label)}</span>
+                  <strong class="altar-part-price">${money(option.value)}</strong>
+                </div>
+                <button class="add-btn" type="button" data-add="${item.id}" data-mode="${escapeHTML(part)}">Agregar</button>
+              </div>`).join("")}
+          </div>
+        </div>`;
+    }
+
     function standardFooterHTML(item) {
       return `
         <div class="item-footer">
@@ -1779,7 +1939,7 @@ id: "p17", type: "Producto", name: "Set para alinear chacras", price: 42185, ima
             ${chipsHTML(item)}
             ${item.note ? `<div class="note">${escapeHTML(item.note)}</div>` : ""}
             ${item.warning ? `<div class="note warning-note">⚠ ${escapeHTML(item.warning)}</div>` : ""}
-            ${item.prices ? sessionPricingHTML(item) : standardFooterHTML(item)}
+            ${item.parts ? altarPartsHTML(item) : (item.prices ? sessionPricingHTML(item) : standardFooterHTML(item))}
           </div>
         </article>`;
     }
@@ -1797,7 +1957,10 @@ id: "p17", type: "Producto", name: "Set para alinear chacras", price: 42185, ima
     }
 
     function getSessionOption(item, variant = "") {
-      return item?.prices && variant && item.prices[variant] ? item.prices[variant] : null;
+      if (!variant) return null;
+      if (item?.prices && item.prices[variant]) return item.prices[variant];
+      if (item?.parts && item.parts[variant]) return item.parts[variant];
+      return null;
     }
 
     function addToCart(id, variant = "") {
@@ -1807,6 +1970,10 @@ id: "p17", type: "Producto", name: "Set para alinear chacras", price: 42185, ima
       const option = getSessionOption(item, variant);
       if (item.prices && !option) {
         showToast("Elegí una modalidad para agregar la sesión.");
+        return;
+      }
+      if (item.parts && !option) {
+        showToast("Elegí qué parte del altar querés agregar.");
         return;
       }
 
@@ -1929,7 +2096,7 @@ id: "p17", type: "Producto", name: "Set para alinear chacras", price: 42185, ima
 
       rows.forEach((item, index) => {
         lines.push(`${index + 1}. ${item.name}`);
-        if (item.variantLabel) lines.push(`   Modalidad: ${item.variantLabel}`);
+        if (item.variantLabel) lines.push(`   ${item.parts ? "Parte" : "Modalidad"}: ${item.variantLabel}`);
         lines.push(`   Cantidad: ${item.qty}`);
         lines.push(`   Precio unitario: ${item.price > 0 ? money(item.price) : "A definir"}`);
         if (item.promoBundles > 0) {
